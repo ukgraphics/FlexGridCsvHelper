@@ -67,12 +67,10 @@ namespace FlexGridCsv
                 {
                     var data = new PostalCodeModel();
 
-                    data.ID = csvReader.GetField<string>(0).ToString();
                     //郵便番号データを格納
+                    data.ID = csvReader.GetField<string>(0).ToString();
                     data.ZIP = csvReader.GetField<string>(1).ToString();
-                    // 数値データを郵便番号形式にフォーマット
-                    data.Postal7 = String.Format("{0:000-0000}", int.Parse(csvReader.GetField<string>(2).ToString()));
-                    //data.Postal7 = csvReader.GetField<string>(2).ToString();
+                    data.Postal7 = String.Format("{0:000-0000}", int.Parse(csvReader.GetField<string>(2).ToString())); // 数値データを郵便番号形式にフォーマット
                     data.Pref = csvReader.GetField<string>(6).ToString();
                     data.City = csvReader.GetField<string>(7).ToString();
                     data.Town = csvReader.GetField<string>(8).ToString();
